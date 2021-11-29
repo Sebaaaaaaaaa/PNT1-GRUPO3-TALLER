@@ -49,9 +49,11 @@ namespace Taller.Controllers
             return View();
         }
 
+       
+
         private bool DniExists(int dni)
         {
-            return _context.Clientes.Any(e => e.Dni == dni);
+            return _context.Empleados.Any(e => e.Dni == dni);
         }
 
         // POST: Empleado/Create
