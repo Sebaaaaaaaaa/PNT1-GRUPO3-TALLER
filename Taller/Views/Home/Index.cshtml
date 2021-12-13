@@ -1,8 +1,101 @@
 ﻿@{
-    ViewData["Title"] = "HomeController Page";
+    ViewData["Title"] = "Inicio";
 }
+
+<link rel="stylesheet" href="~/css/Home.css" />
 
 <div class="text-center">
     <h1 class="display-4" style="text-shadow: 1px 1px 5px black"><b>Taller Mecánico</b></h1>
     <p><u>Arreglamos lo que sea</u></p>
 </div>
+ 
+
+    <div id="banner">
+
+        <h1>Taller Mecánico</h1>
+
+        <p>Arreglamos lo que sea</p>
+
+        <p>
+
+            <a href="#">Comencemos</a>
+
+        </p>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-1">
+
+                <div class="tarjeta">
+
+
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+
+                <div class="tarjeta">
+
+
+
+                    <h2>Patente:</h2>
+
+                    @foreach (var novedad in ViewBag.novedades)
+                    {
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h3>@novedad.Patente</h3>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+
+                <div class="tarjeta">
+
+
+
+                    <h2>Estado:</h2>
+
+                    @foreach (var novedad in ViewBag.novedades)
+                    {
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h3>@novedad.Estado</h3>
+                        </div>
+                    </div>
+                    }
+
+                        </div>
+
+                    
+
+            <div class="col-xs-12 col-sm-6 col-md-1">
+
+                <div class="tarjeta">
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    
+

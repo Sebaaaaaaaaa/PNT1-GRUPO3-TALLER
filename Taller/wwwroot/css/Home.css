@@ -1,0 +1,22 @@
+﻿
+#banner {
+    text-align: center;
+    background-image: url("https://talleractual.com/images/contenido/negocios-y-autopartes/mercado-local/mercado-de-posventa/2019/04/2019-04-26-talleres-mecanicos-como-evitar-multas-y-clausuras-1-01.jpg");
+    background-size: auto;
+    padding: 150px;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+}
+
+    #banner h1 {
+        color: black;
+        font-size: 50px;
+    }
+
+    #banner p {
+        color: white;
+        opacity: 0.8;
+        font-size: 30px;
+        font-weight: lighter;
+    }
+  

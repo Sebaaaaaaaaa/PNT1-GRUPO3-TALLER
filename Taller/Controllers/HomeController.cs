@@ -6,20 +6,29 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Taller.Models;
+using Taller.Context;
 
 namespace Taller.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly TallerDBContext _context;
+
+        public HomeController(TallerDBContext context)
         {
-            _logger = logger;
+            _context = context;
         }
-
+        
+        
+        public List<Novedades> getDatos()
+        {
+            List<Novedades> datos = _context.Novedades.ToList();
+            return datos;
+        }
         public IActionResult Index()
         {
+            ViewBag.novedades = getDatos().Take(5);
             return View();
         }
 
