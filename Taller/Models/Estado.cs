@@ -2,6 +2,6 @@
 {
     public enum Estado
     {
-        Listo, No_Listo
+        Listo, Reparando
     }
 }

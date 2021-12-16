@@ -1,101 +1,106 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Inicio";
 }
 
-<link rel="stylesheet" href="~/css/Home.css" />
-
-<div class="text-center">
-    <h1 class="display-4" style="text-shadow: 1px 1px 5px black"><b>Taller Mecánico</b></h1>
-    <p><u>Arreglamos lo que sea</u></p>
-</div>
- 
-
-    <div id="banner">
-
-        <h1>Taller Mecánico</h1>
-
-        <p>Arreglamos lo que sea</p>
-
-        <p>
-
-            <a href="#">Comencemos</a>
-
-        </p>
-
-    </div>
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-xs-12 col-sm-6 col-md-1">
-
-                <div class="tarjeta">
 
 
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
 
-                </div>
+    <h1 class="display-2 text-center font-weight-lighter">Taller Mecánico</h1>
+    <h3 class="text-primary text-center">Arreglamos lo que sea.</h3>
+    <br />
 
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://i.pinimg.com/originals/05/05/d4/0505d4dd2bd4b59d405f79337da4d17d.jpg" alt="img1" width="1100" height="500">
             </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-
-                <div class="tarjeta">
-
-
-
-                    <h2>Patente:</h2>
-
-                    @foreach (var novedad in ViewBag.novedades)
-                    {
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <h3>@novedad.Patente</h3>
-                            </div>
-                        </div>
-                    }
-
-
-                </div>
-
+            <div class="carousel-item">
+                <img src="https://www.autoavance.co/wp-content/uploads/2021/10/taller-mecanico-productividad.jpeg" alt="img2" width="1100" height="500">
             </div>
-
-            
-
-            <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-
-                <div class="tarjeta">
-
-
-
-                    <h2>Estado:</h2>
-
-                    @foreach (var novedad in ViewBag.novedades)
-                    {
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h3>@novedad.Estado</h3>
-                        </div>
-                    </div>
-                    }
-
-                        </div>
-
-                    
-
-            <div class="col-xs-12 col-sm-6 col-md-1">
-
-                <div class="tarjeta">
-
-                </div>
-
+            <div class="carousel-item">
+                <img src="https://www.infotaller.tv/2020/07/16/reparacion/armas-taller-mecanico-triunfe_1456364376_471879_660x372.jpg" alt="img3" width="1100" height="500">
             </div>
-
-
-
         </div>
 
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
     </div>
 
-    
+</body>
+</html>
 
+<br />
+
+<input class="form-control" id="myInput" type="text" placeholder="Buscar por Patente o Estado...">
+<br>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Patente:
+            </th>
+            <th>
+                Estado:
+            </th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        @foreach (var novedad in ViewBag.novedades)
+        {
+            <tr>
+                <td>
+                    @novedad.Patente
+                </td>
+                <td>
+                    @novedad.Estado
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
